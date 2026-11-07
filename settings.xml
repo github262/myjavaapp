@@ -1,0 +1,35 @@
+<settings>
+
+<servers>
+  <server>
+    <id>nextwork-domain-nextwork-myjavaapp-repo</id>
+    <username>aws</username>
+    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+  </server>
+</servers>
+
+<profiles>
+  <profile>
+    <id>nextwork-domain-nextwork-myjavaapp-repo</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+      <repository>
+        <id>nextwork-domain-nextwork-myjavaapp-repo</id>
+        <url>https://nextwork-domain-206677902173.d.codeartifact.eu-north-1.amazonaws.com/maven/nextwork-myjavaapp-repo/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+
+<mirrors>
+  <mirror>
+    <id>nextwork-domain-nextwork-myjavaapp-repo</id>
+    <name>nextwork-domain-nextwork-myjavaapp-repo</name>
+    <url>https://nextwork-domain-206677902173.d.codeartifact.eu-north-1.amazonaws.com/maven/nextwork-myjavaapp-repo/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+
+</settings>
