@@ -16,6 +16,6 @@
 # "|| true" keeps the deployment going on the first run,
 # when the services do not exist yet.
 systemctl stop httpd.service || true
-systemctl stop myjavaapp.service || true
+systemctll stop myjavaapp.service || true
 exit 0
  
