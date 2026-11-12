@@ -15,7 +15,14 @@
 #!/bin/bash
 # "|| true" keeps the deployment going on the first run,
 # when the services do not exist yet.
-systemctl stop httpd.service || true
-systemc stop myjavaapp.service || true
+# systemctl stop httpd.service || true
+# systemc stop myjavaapp.service || true
+# exit 0
+
+!/bin/bash
+
+systemctl stop httpd.service
+systemc stop myjavaapp.service
+
 exit 0
  
