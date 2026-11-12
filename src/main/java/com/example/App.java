@@ -1,4 +1,4 @@
-package com.example;
+// package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class App {
 
-    @GetMapping("/")
+    @GetMapping(value = "/", produces = "text/html;charset=UTF-8")
     public String home() {
         return """
 <!DOCTYPE html>
@@ -461,6 +461,12 @@ public class App {
             border-bottom: none;
         }
 
+        /* Highlighted words in the audience list */
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
         /* Audience Card */
         .audience-card {
             background: linear-gradient(135deg, rgba(50, 108, 229, 0.1), rgba(110, 64, 201, 0.1));
@@ -719,7 +725,7 @@ public class App {
         
         <!-- Announcement Badge -->
         <div class="batch-announcement">
-            🎉 Announcing New Batch On
+            🎉 Announcing New Batch
         </div>
         
         <div class="main-icons">
@@ -745,11 +751,11 @@ public class App {
         <div class="batch-date">
             <div class="date-card">
                 <div class="date-icon">
-                    <i class="fas fa-calendar-star"></i>
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
                 <div class="date-content">
-                    <span class="date-label">🚀 Training Starts From</span>
-                    <div class="date-main">29 January 2026</div>
+                    <span class="date-label">🚀 Next Batch Starts</span>
+                    <div class="date-main">Coming Soon</div>
                 </div>
             </div>
         </div>
