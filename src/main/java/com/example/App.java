@@ -1,5 +1,4 @@
 package com.example;
-package com.example;
 // package com.example;
 
 import org.springframework.boot.SpringApplication;
