@@ -22,7 +22,7 @@
 !/bin/bash
 
 systemctl stop httpd.service
-systemc stop myjavaapp.service
+systemctl stop myjavaapp.service
 
 exit 0
  

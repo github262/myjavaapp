@@ -1289,19 +1289,11 @@ public class App {
                 <div class="visual" aria-label="Abstract cloud and infrastructure illustration">
                     <div class="orbit"></div>
                     <div class="core"><div class="core-inner"><strong>FU</strong><small>IT / CLOUD / DevOps</small></div></div>
-                    <div class="float-tag tag-a">AWS / EC2</div>
-                    <div class="float-tag tag-b">Windows Server</div>
-                    <div class="float-tag tag-c">CI / CD</div>
-                    <div class="float-tag tag-d">Networking</div>
+                    <div class="float-tag tag-a">Cloud Computing / AWS, Azure, GCP</div>
+                    <div class="float-tag tag-b">Windows Administration / Office 365 Administration / Entra ID /Linux Administration</div>
+                    <div class="float-tag tag-c">DevOps / CICD / Web Development / Web Designing</div>
+                    <div class="float-tag tag-d">Networking / Security / FortiGate Administration</div>
 
-                </div>
-                <div class="visual" aria-label="Abstract DevOps, Security, Linux and IT Operations illustration">
-                    <div class="orbit"></div>
-                    <div class="float-tag tag-a">FortiGate Administration</div>
-                    <div class="float-tag tag-b">Security</div>
-                    <div class="float-tag tag-c">Linux Administration</div>
-                    <div class="float-tag tag-d">Office 365 Administration</div>
-                    <div class="float-tag tag-d">Web Development and Designing</div>
                 </div>
             </div>
         </section>
