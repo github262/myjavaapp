@@ -1293,10 +1293,12 @@ public class App {
                     <div class="float-tag tag-b">Windows Server</div>
                     <div class="float-tag tag-c">CI / CD</div>
                     <div class="float-tag tag-d">Networking</div>
+                    <div class="core"><div class="core-inner"><strong>FU</strong><small>IT / CLOUD / DevOps</small></div></div>
                     <div class="float-tag tag-a">FortiGate Administration</div>
                     <div class="float-tag tag-b">Security</div>
                     <div class="float-tag tag-c">Linux Administration</div>
                     <div class="float-tag tag-d">Office 365 Administration</div>
+                    <div class="float-tag tag-d">Web Development and Designing</div>
                 </div>
             </div>
         </section>
