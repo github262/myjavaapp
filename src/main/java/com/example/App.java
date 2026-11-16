@@ -1321,6 +1321,7 @@ public class App {
                     <p>I work across the practical foundations of IT: <strong>server administration, identity and access, networking, endpoint management, and security tooling.</strong> My approach is to understand the problem, make changes carefully, document the result, and verify that the solution works.</p>
                     <p>Alongside infrastructure operations, I'm building deeper cloud and DevOps capability through hands-on projects with AWS, Docker, Kubernetes, Maven, and GitHub Actions. I enjoy learning by building, testing, troubleshooting, and improving real deployment workflows.</p>
                     <p>I'm particularly interested in infrastructure automation, secure cloud architecture, CI/CD, and improving the reliability of IT services.</p>
+                    <p>If you see this line, that means your latest changes are automatically deployed into production by CodePipeline!</p>
                     <div class="focus-list">
                         <span class="chip">Problem solving</span><span class="chip">Documentation</span>
                         <span class="chip">Troubleshooting</span><span class="chip">Security minded</span>
