@@ -1,4 +1,4 @@
-throw new RuntimeException("bad deploy");
+if (true) { throw new RuntimeException("bad deploy"); }
 package com.example;
 
 import org.springframework.boot.SpringApplication;
