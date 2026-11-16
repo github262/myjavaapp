@@ -1143,11 +1143,13 @@ public class App {
             border: 1px solid rgba(120, 168, 255, .32); border-radius: 50%;
             transform: translate(14%, -12%);
         }
-        .tag-col { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; padding: 34px 0; gap: 16px; }
+        .tag-col { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; padding: 8px 0; gap: 16px; }
+        .tag-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .tag-row .float-tag { width: auto; padding: 9px 13px; }
         .float-tag {
-            width: 112px; padding: 10px 11px; border: 1px solid var(--line); text-align: center;
+            width: 118px; padding: 9px 10px; border: 1px solid var(--line); text-align: center;
             border-radius: 10px; background: rgba(16, 24, 44, .9); color: #cbd7eb;
-            font: .7rem "DM Mono", monospace; line-height: 1.4; box-shadow: 0 12px 35px rgba(0,0,0,.2);
+            font: .68rem "DM Mono", monospace; line-height: 1.4; box-shadow: 0 12px 35px rgba(0,0,0,.2);
         }
 
         /* Quick facts */
@@ -1249,8 +1251,8 @@ public class App {
             .hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
             .visual { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
             .portrait-wrap { order: 1; flex: 0 0 100%; width: min(78vw, 310px); max-width: 310px; margin: 0 auto 8px; }
-            .tag-col { order: 2; flex-direction: row; flex-wrap: wrap; justify-content: center; align-self: auto; padding: 0; gap: 10px; }
-            .float-tag { width: auto; padding: 8px 11px; }
+            .tag-col, .tag-row { display: contents; }
+            .float-tag, .tag-row .float-tag { order: 2; width: auto; padding: 8px 11px; }
             .quick-grid { grid-template-columns: repeat(2, 1fr); }
             .quick-item:nth-child(2) { border-right: 0; }
             .quick-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -1298,11 +1300,16 @@ public class App {
                         <span><b>⌁</b> Automation mindset</span>
                     </div>
                 </div>
-                <div class="visual" aria-label="Portrait of Farman Ullah">
-                    <div class="tag-col">
+                <div class="visual" aria-label="Portrait of Farman Ullah with his skills around it">
+                    <div class="tag-row">
+                        <div class="float-tag">System Admin</div>
                         <div class="float-tag">Windows Admin</div>
                         <div class="float-tag">Linux Admin</div>
-                        <div class="float-tag">Office 365</div>
+                    </div>
+                    <div class="tag-col">
+                        <div class="float-tag">Networking</div>
+                        <div class="float-tag">FortiGate Firewall</div>
+                        <div class="float-tag">Web Dev &amp; Design</div>
                     </div>
                     <div class="portrait-wrap">
                         <div class="portrait-accent" aria-hidden="true"></div>
@@ -1312,9 +1319,14 @@ public class App {
                         </div>
                     </div>
                     <div class="tag-col">
-                        <div class="float-tag">FortiGate Firewall</div>
-                        <div class="float-tag">AWS / Azure / GCP</div>
+                        <div class="float-tag">Office 365 Admin</div>
+                        <div class="float-tag">Security</div>
+                        <div class="float-tag">IP PABX</div>
+                    </div>
+                    <div class="tag-row">
+                        <div class="float-tag">AWS / Azure / GCP / Oracle</div>
                         <div class="float-tag">CI / CD</div>
+                        <div class="float-tag">DevOps</div>
                     </div>
                 </div>
             </div>
