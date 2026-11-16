@@ -995,6 +995,7 @@
 // }
 
 
+
 package com.example;
 
 import org.springframework.boot.SpringApplication;
@@ -1115,20 +1116,31 @@ public class App {
         .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
         .hero-meta b { color: var(--cyan); font-weight: 400; }
 
-        .visual { position: relative; min-height: 390px; display: grid; place-items: center; }
-        .orbit { width: min(330px, 80vw); aspect-ratio: 1; border: 1px solid rgba(120, 168, 255, .22); border-radius: 50%; position: absolute; }
-        .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(99, 230, 223, .18); border-radius: 50%; inset: 28px; }
-        .orbit::after { inset: 62px; border-color: rgba(173, 150, 255, .2); }
-        .core {
-            width: 168px; height: 168px; display: grid; place-items: center; text-align: center;
-            border-radius: 35px; transform: rotate(-8deg);
-            background: linear-gradient(145deg, rgba(99, 230, 223, .18), rgba(120, 168, 255, .12));
-            border: 1px solid rgba(99, 230, 223, .45);
-            box-shadow: 0 0 80px rgba(99, 230, 223, .12), inset 0 0 35px rgba(99, 230, 223, .07);
+        .visual {
+            position: relative; min-height: 430px; display: grid; place-items: center;
+            isolation: isolate;
         }
-        .core-inner { transform: rotate(8deg); }
-        .core strong { display: block; font-size: 2.5rem; letter-spacing: -.08em; }
-        .core small { color: var(--cyan); font: .65rem "DM Mono", monospace; letter-spacing: .12em; }
+        .portrait-frame {
+            position: relative; width: min(100%, 370px); aspect-ratio: 1 / 1.12;
+            overflow: hidden; border-radius: 28px;
+            border: 1px solid rgba(99, 230, 223, .55);
+            background: #05070d;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .42), 0 0 55px rgba(99, 230, 223, .12);
+        }
+        .portrait-frame::before {
+            content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: linear-gradient(180deg, transparent 58%, rgba(7, 13, 27, .48));
+        }
+        .portrait {
+            display: block; width: 100%; height: 100%; object-fit: cover;
+            object-position: center 35%;
+            filter: grayscale(100%) contrast(1.04);
+        }
+        .portrait-accent {
+            position: absolute; z-index: -1; width: 82%; aspect-ratio: 1;
+            border: 1px solid rgba(120, 168, 255, .32); border-radius: 50%;
+            transform: translate(14%, -12%);
+        }
         .float-tag {
             position: absolute; padding: 10px 13px; border: 1px solid var(--line);
             border-radius: 10px; background: rgba(16, 24, 44, .9); color: #cbd7eb;
@@ -1214,7 +1226,8 @@ public class App {
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr .7fr; gap: 25px; }
+            .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 25px; }
+            .portrait-frame { width: min(100%, 330px); }
             .about-grid { gap: 35px; }
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-panel { align-items: flex-start; flex-direction: column; }
@@ -1234,11 +1247,10 @@ public class App {
             .hero { min-height: auto; padding: 76px 0 65px; }
             .hero-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
-            .visual { min-height: 300px; margin-top: 10px; }
-            .orbit { width: 270px; }
-            .core { width: 140px; height: 140px; }
-            .tag-a { left: 4%; } .tag-b { right: 2%; }
-            .tag-c { left: 2%; } .tag-d { right: 4%; }
+            .visual { min-height: 360px; margin-top: 10px; }
+            .portrait-frame { width: min(78vw, 310px); }
+            .tag-a { left: 2%; top: 28px; } .tag-b { right: 0; top: 82px; }
+            .tag-c { left: 0; bottom: 48px; } .tag-d { right: 2%; bottom: 15px; }
             .quick-grid { grid-template-columns: repeat(2, 1fr); }
             .quick-item:nth-child(2) { border-right: 0; }
             .quick-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -1286,9 +1298,12 @@ public class App {
                         <span><b>⌁</b> Automation mindset</span>
                     </div>
                 </div>
-                <div class="visual" aria-label="Abstract cloud and infrastructure illustration">
-                    <div class="orbit"></div>
-                    <div class="core"><div class="core-inner"><strong>FU</strong><small>IT / CLOUD</small></div></div>
+                <div class="visual" aria-label="Portrait of Farman Ullah">
+                    <div class="portrait-accent" aria-hidden="true"></div>
+                    <div class="portrait-frame">
+                        <img class="portrait" src="/images/farman-profile.jpeg"
+                             alt="Farman Ullah, Systems Administrator" fetchpriority="high">
+                    </div>
                     <div class="float-tag tag-a">AWS / EC2</div>
                     <div class="float-tag tag-b">Windows Server</div>
                     <div class="float-tag tag-c">CI / CD</div>
@@ -1321,7 +1336,6 @@ public class App {
                     <p>I work across the practical foundations of IT: <strong>server administration, identity and access, networking, endpoint management, and security tooling.</strong> My approach is to understand the problem, make changes carefully, document the result, and verify that the solution works.</p>
                     <p>Alongside infrastructure operations, I'm building deeper cloud and DevOps capability through hands-on projects with AWS, Docker, Kubernetes, Maven, and GitHub Actions. I enjoy learning by building, testing, troubleshooting, and improving real deployment workflows.</p>
                     <p>I'm particularly interested in infrastructure automation, secure cloud architecture, CI/CD, and improving the reliability of IT services.</p>
-                    
                     <div class="focus-list">
                         <span class="chip">Problem solving</span><span class="chip">Documentation</span>
                         <span class="chip">Troubleshooting</span><span class="chip">Security minded</span>
