@@ -1091,7 +1091,7 @@ public class App {
 
         /* Hero */
         .hero { min-height: 690px; display: grid; align-items: center; padding: 92px 0 100px; position: relative; }
-        .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 70px; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); align-items: center; gap: 40px; }
         .availability {
             display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px;
             border: 1px solid var(--line); background: rgba(19, 29, 51, .55);
@@ -1099,7 +1099,7 @@ public class App {
             margin-bottom: 27px;
         }
         .dot { width: 7px; height: 7px; background: #6de6a5; border-radius: 50%; box-shadow: 0 0 14px #6de6a5; }
-        .hero h1 { font-size: clamp(3rem, 6.6vw, 5.6rem); line-height: 1.02; letter-spacing: -.075em; max-width: 760px; }
+        .hero h1 { font-size: clamp(3rem, 5.6vw, 5rem); line-height: 1.02; letter-spacing: -.075em; max-width: 760px; }
         .hero h1 .line { display: block; }
         .hero-copy { max-width: 650px; color: var(--muted); font-size: 1.04rem; margin: 25px 0 32px; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
@@ -1117,11 +1117,13 @@ public class App {
         .hero-meta b { color: var(--cyan); font-weight: 400; }
 
         .visual {
-            position: relative; min-height: 430px; display: grid; place-items: center;
+            position: relative; display: grid; align-items: center;
+            grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px;
             isolation: isolate;
         }
+        .portrait-wrap { position: relative; display: grid; place-items: center; isolation: isolate; }
         .portrait-frame {
-            position: relative; width: min(100%, 370px); aspect-ratio: 1 / 1.12;
+            position: relative; width: 100%; aspect-ratio: 1 / 1.12;
             overflow: hidden; border-radius: 28px;
             border: 1px solid rgba(99, 230, 223, .55);
             background: #05070d;
@@ -1141,13 +1143,12 @@ public class App {
             border: 1px solid rgba(120, 168, 255, .32); border-radius: 50%;
             transform: translate(14%, -12%);
         }
+        .tag-col { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; padding: 34px 0; gap: 16px; }
         .float-tag {
-            position: absolute; padding: 10px 13px; border: 1px solid var(--line);
+            width: 112px; padding: 10px 11px; border: 1px solid var(--line); text-align: center;
             border-radius: 10px; background: rgba(16, 24, 44, .9); color: #cbd7eb;
-            font: .72rem "DM Mono", monospace; box-shadow: 0 12px 35px rgba(0,0,0,.2);
+            font: .7rem "DM Mono", monospace; line-height: 1.4; box-shadow: 0 12px 35px rgba(0,0,0,.2);
         }
-        .tag-a { top: 42px; left: 0; } .tag-b { top: 104px; right: -12px; }
-        .tag-c { bottom: 55px; left: -5px; } .tag-d { bottom: 17px; right: 10px; }
 
         /* Quick facts */
         .quick-strip { border-block: 1px solid var(--line); background: rgba(16, 24, 44, .48); }
@@ -1227,7 +1228,6 @@ public class App {
 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 25px; }
-            .portrait-frame { width: min(100%, 330px); }
             .about-grid { gap: 35px; }
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-panel { align-items: flex-start; flex-direction: column; }
@@ -1247,10 +1247,10 @@ public class App {
             .hero { min-height: auto; padding: 76px 0 65px; }
             .hero-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
-            .visual { min-height: 360px; margin-top: 10px; }
-            .portrait-frame { width: min(78vw, 310px); }
-            .tag-a { left: 2%; top: 28px; } .tag-b { right: 0; top: 82px; }
-            .tag-c { left: 0; bottom: 48px; } .tag-d { right: 2%; bottom: 15px; }
+            .visual { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+            .portrait-wrap { order: 1; flex: 0 0 100%; width: min(78vw, 310px); max-width: 310px; margin: 0 auto 8px; }
+            .tag-col { order: 2; flex-direction: row; flex-wrap: wrap; justify-content: center; align-self: auto; padding: 0; gap: 10px; }
+            .float-tag { width: auto; padding: 8px 11px; }
             .quick-grid { grid-template-columns: repeat(2, 1fr); }
             .quick-item:nth-child(2) { border-right: 0; }
             .quick-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -1299,15 +1299,23 @@ public class App {
                     </div>
                 </div>
                 <div class="visual" aria-label="Portrait of Farman Ullah">
-                    <div class="portrait-accent" aria-hidden="true"></div>
-                    <div class="portrait-frame">
-                        <img class="portrait" src="/images/farman-profile.jpeg"
-                             alt="Farman Ullah, Systems Administrator" fetchpriority="high">
+                    <div class="tag-col">
+                        <div class="float-tag">Windows Admin</div>
+                        <div class="float-tag">Linux Admin</div>
+                        <div class="float-tag">Office 365</div>
                     </div>
-                    <div class="float-tag tag-a">AWS / EC2</div>
-                    <div class="float-tag tag-b">Windows Server</div>
-                    <div class="float-tag tag-c">CI / CD</div>
-                    <div class="float-tag tag-d">Networking</div>
+                    <div class="portrait-wrap">
+                        <div class="portrait-accent" aria-hidden="true"></div>
+                        <div class="portrait-frame">
+                            <img class="portrait" src="/images/farman-profile.jpeg"
+                                 alt="Farman Ullah, Systems Administrator" fetchpriority="high">
+                        </div>
+                    </div>
+                    <div class="tag-col">
+                        <div class="float-tag">FortiGate Firewall</div>
+                        <div class="float-tag">AWS / Azure / GCP</div>
+                        <div class="float-tag">CI / CD</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1350,38 +1358,38 @@ public class App {
                 <div class="section-head reveal">
                     <span class="eyebrow">02 / Technical toolkit</span>
                     <h2>Tools I use to <span class="gradient-text">get things done.</span></h2>
-                    <p>A practical mix of enterprise IT administration and growing cloud-native engineering skills.</p>
+                    <p>From everyday system administration to cloud and DevOps engineering, and more.</p>
                 </div>
                 <div class="skills-grid">
                     <article class="skill-card reveal">
-                        <div class="skill-icon">01</div><h3>Systems & Identity</h3>
-                        <p>Managing core Windows infrastructure, directory services, and user access.</p>
-                        <div class="skill-tags"><span>Windows Server</span><span>Active Directory</span><span>DNS</span><span>FTP / IIS</span></div>
+                        <div class="skill-icon">01</div><h3>Systems Administration</h3>
+                        <p>Running and supporting servers, user accounts, mailboxes, and day-to-day IT operations.</p>
+                        <div class="skill-tags"><span>System Administration</span><span>Windows Administration</span><span>Linux Administration</span><span>Office 365 Administration</span></div>
                     </article>
                     <article class="skill-card reveal">
-                        <div class="skill-icon">02</div><h3>Networking</h3>
-                        <p>Supporting network connectivity, segmentation, and infrastructure troubleshooting.</p>
-                        <div class="skill-tags"><span>VLANs</span><span>Layer 2 / 3</span><span>FortiGate</span><span>TCP/IP</span></div>
+                        <div class="skill-icon">02</div><h3>Networking & Telephony</h3>
+                        <p>Keeping networks, firewalls, and business phone systems connected and protected.</p>
+                        <div class="skill-tags"><span>Networking</span><span>FortiGate Firewall Administration</span><span>IP PABX</span></div>
                     </article>
                     <article class="skill-card reveal">
-                        <div class="skill-icon">03</div><h3>AWS & Cloud</h3>
-                        <p>Building and exploring cloud infrastructure through guided, hands-on projects.</p>
-                        <div class="skill-tags"><span>EC2</span><span>VPC</span><span>S3</span><span>IAM</span><span>EKS</span><span>CodeDeploy</span></div>
+                        <div class="skill-icon">03</div><h3>Cloud Platforms</h3>
+                        <p>Working across public clouds, from virtual machines to networking and access control.</p>
+                        <div class="skill-tags"><span>AWS</span><span>Azure</span><span>GCP</span><span>Oracle Cloud</span></div>
                     </article>
                     <article class="skill-card reveal">
-                        <div class="skill-icon">04</div><h3>DevOps & Containers</h3>
-                        <p>Practising automated build, container image, and application deployment workflows.</p>
-                        <div class="skill-tags"><span>GitHub Actions</span><span>Docker</span><span>Kubernetes</span><span>Maven</span></div>
+                        <div class="skill-icon">04</div><h3>DevOps & CI/CD</h3>
+                        <p>Automating builds and deployments so releases are repeatable.</p>
+                        <div class="skill-tags"><span>CI/CD</span><span>DevOps</span><span>GitHub Actions</span><span>Docker</span><span>Maven</span></div>
                     </article>
                     <article class="skill-card reveal">
-                        <div class="skill-icon">05</div><h3>Security & Endpoint</h3>
-                        <p>Working with endpoint protection and device management to support safer operations.</p>
-                        <div class="skill-tags"><span>Bitdefender</span><span>Hexnode MDM</span><span>Endpoint Security</span></div>
+                        <div class="skill-icon">05</div><h3>Security</h3>
+                        <p>Protecting systems through firewalls, endpoint tools, and access control.</p>
+                        <div class="skill-tags"><span>Security</span><span>FortiGate</span><span>Endpoint Security</span></div>
                     </article>
                     <article class="skill-card reveal">
-                        <div class="skill-icon">06</div><h3>Automation & Delivery</h3>
-                        <p>Improving repeatability through scripts, pipelines, and deployment practices.</p>
-                        <div class="skill-tags"><span>CI/CD</span><span>CodeArtifact</span><span>Git</span><span>Linux</span></div>
+                        <div class="skill-icon">06</div><h3>Web Development & Design</h3>
+                        <p>Building and designing responsive websites, like this one.</p>
+                        <div class="skill-tags"><span>Web Development</span><span>Web Design</span><span>HTML / CSS</span></div>
                     </article>
                 </div>
             </div>
