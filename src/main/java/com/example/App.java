@@ -286,7 +286,7 @@ public class App {
         </nav>
     </div>
 
-    <main>
+    # <main>
         <section class="hero" id="home">
             <div class="wrap hero-grid">
                 <div>
@@ -550,6 +550,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        SpringApplication .run(App.class, args);
+        SpringApplication.run(App.class, args);
     }
 }
