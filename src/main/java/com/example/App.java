@@ -1,7 +1,4 @@
-public static void main(String[] args) {
-    if (true) { throw new RuntimeException("bad deploy"); }
-    SpringApplication.run(App.class, args);
-}
+
 package com.example;
 
 import org.springframework.boot.SpringApplication;
@@ -553,6 +550,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication .run(App.class, args);
     }
 }
